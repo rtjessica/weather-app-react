@@ -42,6 +42,18 @@ export default function Search() {
     </form>
   );
 
+  let footer = (
+    <p>
+      <a
+        href="https://github.com/rtjessica/weather-app-react"
+        target="_blank"
+        rel="noreferrer">
+        Open-source code
+      </a>
+      <span>by Jess Teixeira</span>
+    </p>
+  );
+
   if (loaded) {
     return (
       <div>
@@ -57,9 +69,16 @@ export default function Search() {
             <img src={weather.icon} alt="weather icon" />
           </li>
         </ul>
+        {footer}
       </div>
     );
   } else {
-    return form;
+    return (
+      <div>
+        {form}
+
+        {footer}
+      </div>
+    );
   }
 }
