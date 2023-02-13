@@ -28,6 +28,7 @@ export default function Search() {
   }
 
   function updateCity(event) {
+    event.preventDefault();
     setCity(event.target.value);
   }
 
@@ -38,7 +39,7 @@ export default function Search() {
         placeholder="Search for a City"
         onChange={updateCity}
       />
-      <input type="submit" value="Search" />
+      <button type="submit">Search</button>
     </form>
   );
 
@@ -58,10 +59,8 @@ export default function Search() {
     return (
       <div>
         {form}
-        <h3>
-          The temperature in {city} is {Math.round(weather.temperature)}°C
-        </h3>
         <ul>
+          <li>Temperature: {Math.round(weather.temperature)}°C</li>
           <li>{weather.description}</li>
           <li>Humidity: {weather.humidity}%</li>
           <li>Wind: {Math.round(weather.wind)}km/h</li>
