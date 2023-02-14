@@ -12,9 +12,8 @@ function App() {
               <Search />
             </div>
           </div>
+          <Footer />
         </header>
-
-        <Footer />
       </div>
     </div>
   );

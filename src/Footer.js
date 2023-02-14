@@ -9,7 +9,7 @@ export default function Footer() {
         rel="noreferrer">
         Open-source code
       </a>
-      <span>by Jess Teixeira</span>
+      <span> by Jess Teixeira</span>
     </footer>
   );
 }
