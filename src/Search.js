@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import WeatherData from "./WeatherData";
 
 export default function Search() {
   const [loaded, setLoaded] = useState(false);
@@ -13,6 +14,7 @@ export default function Search() {
       humidity: response.data.main.humidity,
       wind: response.data.wind.speed,
       description: response.data.weather[0].description,
+      date: new Date(response.data.dt * 1000),
       icon: `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`,
     });
   }
@@ -48,31 +50,7 @@ export default function Search() {
     return (
       <div>
         {form}
-
-        <div className="current-city">{city}</div>
-        <div className="row">
-          <div className="col-6">
-            <ul>
-              <li className="weather-description">{weather.description}</li>
-              <li className="weather-main">
-                💧 {weather.humidity}% | 🍃 {Math.round(weather.wind)}km/h
-              </li>
-              <li className="current-day">Last Update: Sunday 23:06</li>
-            </ul>
-          </div>
-          <div className="col-6 current-weather">
-            <img
-              className="temperature-icon"
-              src={weather.icon}
-              alt="weather icon"
-            />
-
-            <span className="temperature">
-              {Math.round(weather.temperature)}
-              <span className="units">°C</span>
-            </span>
-          </div>
-        </div>
+        <WeatherData data={weather} />
       </div>
     );
   } else {
