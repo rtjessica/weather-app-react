@@ -35,49 +35,47 @@ export default function Search() {
   let form = (
     <form onSubmit={handleSubmit}>
       <input
+        className="city"
         type="text"
         placeholder="Search for a City"
         onChange={updateCity}
       />
-      <button type="submit">Search</button>
+      <input type="submit" className="search" value="Search" />
     </form>
-  );
-
-  let footer = (
-    <p>
-      <a
-        href="https://github.com/rtjessica/weather-app-react"
-        target="_blank"
-        rel="noreferrer">
-        Open-source code
-      </a>
-      <span>by Jess Teixeira</span>
-    </p>
   );
 
   if (loaded) {
     return (
       <div>
         {form}
-        <ul>
-          <li>Temperature: {Math.round(weather.temperature)}°C</li>
-          <li>{weather.description}</li>
-          <li>Humidity: {weather.humidity}%</li>
-          <li>Wind: {Math.round(weather.wind)}km/h</li>
-          <li>
-            <img src={weather.icon} alt="weather icon" />
-          </li>
-        </ul>
-        {footer}
+
+        <div className="current-city">{city}</div>
+        <div className="row">
+          <div className="col-6">
+            <ul>
+              <li className="weather-description">{weather.description}</li>
+              <li className="weather-main">
+                💧 {weather.humidity}% | 🍃 {Math.round(weather.wind)}km/h
+              </li>
+              <li className="current-day">Last Update: Sunday 23:06</li>
+            </ul>
+          </div>
+          <div className="col-6 current-weather">
+            <img
+              className="temperature-icon"
+              src={weather.icon}
+              alt="weather icon"
+            />
+
+            <span className="temperature">
+              {Math.round(weather.temperature)}
+              <span className="units">°C</span>
+            </span>
+          </div>
+        </div>
       </div>
     );
   } else {
-    return (
-      <div>
-        {form}
-
-        {footer}
-      </div>
-    );
+    return <div>{form}</div>;
   }
 }

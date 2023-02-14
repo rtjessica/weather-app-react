@@ -1,13 +1,21 @@
 import "./App.css";
 import Search from "./Search";
+import Footer from "./Footer";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h2>Weather App</h2>
-        <Search />
-      </header>
+      <div className="Container">
+        <header className="App-header">
+          <div className="card w-75">
+            <div className="card-body">
+              <Search />
+            </div>
+          </div>
+        </header>
+
+        <Footer />
+      </div>
     </div>
   );
 }
