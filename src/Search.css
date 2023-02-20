@@ -1,0 +1,132 @@
+body {
+  margin-top: 50;
+  color: #666363;
+}
+
+a {
+  color: #666363;
+}
+
+ul {
+  margin-top: 16px;
+  padding-left: 0px;
+}
+
+a .link-git {
+  font-weight: 600;
+}
+
+form .city {
+  border: 2px solid #d7c2da;
+  border-radius: 7px;
+  padding: 8px 10px 8px 10px;
+  width: 300px;
+}
+
+form .search {
+  background: #d7c2da;
+  color: #ffffff;
+  border: 2px solid #d7c2da;
+  padding: 8px 20px 8px 20px;
+  border-radius: 7px;
+  transition: all 200ms ease;
+  margin-left: 12px;
+}
+
+p .small-text {
+  font-size: 10px;
+}
+
+canvas {
+  height: 49px;
+}
+
+.search:hover {
+  background: #c88dd0;
+  color: #ffffff;
+}
+
+.container {
+  padding: 40px 40px 0px 40px;
+  max-width: 600px;
+}
+
+.card {
+  border-color: #d7c2da;
+  background-color: #fffcff;
+  max-width: 600px;
+}
+.current-city {
+  font-size: 35px;
+  margin: 0;
+  padding: 0;
+  padding-top: 30px;
+}
+
+.weather-description,
+.current-day,
+.weather-main {
+  font-size: 15px;
+  font-weight: normal;
+  list-style: none;
+  margin: 0;
+  text-align: left;
+  color: #666363;
+}
+
+.current-weather {
+  font-size: 53px;
+}
+
+.current-weather .temperature {
+  font-size: 53px;
+  margin-top: 10px;
+  vertical-align: text-top;
+}
+
+.current-weather .units {
+  color: #666363;
+  font-size: 12px;
+  line-height: 59px;
+  vertical-align: top;
+}
+
+.temperature-icon {
+  vertical-align: middle;
+  padding-right: 10px;
+}
+
+.geo-location {
+  border: 0px;
+  background: transparent;
+  padding-left: 0px;
+  text-decoration: underline;
+}
+
+.weekly {
+  padding-top: 10px;
+}
+.weekly-forecast-date,
+.weekly-forecast-icons,
+.weekly-forecast-temperature {
+  text-align: center;
+  font-size: 15px;
+}
+
+.link-git {
+  display: block;
+  margin: 0 auto;
+  padding: 0px 150px 0px 150px;
+  max-width: 900px;
+}
+
+.weekly-forecast-icons {
+  width: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+.weekly-forecast-date,
+.weekly-forecast-temperature-min {
+  color: rgba(0, 0, 0, 0.287);
+}
