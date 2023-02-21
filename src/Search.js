@@ -4,14 +4,13 @@ import WeatherData from "./WeatherData";
 import WeatherForecast from "./WeatherForecast";
 import "./Search.css";
 
-export default function Search() {
-  const [loaded, setLoaded] = useState(false);
-  const [city, setCity] = useState("");
+export default function Search(props) {
+  const [city, setCity] = useState(props.defaultCity);
   const [weather, setWeather] = useState({});
 
   function handleResponse(response) {
-    setLoaded(true);
     setWeather({
+      loaded: true,
       coordinates: response.data.coordinates,
       temperature: Math.round(response.data.temperature.current),
       humidity: response.data.temperature.humidity,
@@ -26,17 +25,19 @@ export default function Search() {
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "tfcd3e25d2be9a7a29a436do2b30aed0";
-    let units = "metric";
-    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
-    axios.get(url).then(handleResponse);
-
-    return city;
+    search();
   }
 
   function updateCity(event) {
     event.preventDefault();
     setCity(event.target.value);
+  }
+
+  function search() {
+    let apiKey = "tfcd3e25d2be9a7a29a436do2b30aed0";
+    let units = "metric";
+    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
+    axios.get(url).then(handleResponse);
   }
 
   let form = (
@@ -51,7 +52,7 @@ export default function Search() {
     </form>
   );
 
-  if (loaded) {
+  if (weather.loaded) {
     return (
       <div>
         {form}
@@ -60,6 +61,7 @@ export default function Search() {
       </div>
     );
   } else {
-    return <div>{form}</div>;
+    search();
+    return "Loading";
   }
 }

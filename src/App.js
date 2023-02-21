@@ -9,7 +9,7 @@ function App() {
         <header className="App-header">
           <div className="card w-75">
             <div className="card-body">
-              <Search />
+              <Search defaultCity="New York" />
             </div>
           </div>
           <Footer />
