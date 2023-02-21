@@ -1,0 +1,24 @@
+.WeatherForecast canvas {
+  height: 35px;
+}
+
+.weekly-forecast-icons {
+  width: 50px;
+  display: block;
+  margin: 0 auto;
+}
+
+.weekly {
+  padding-top: 10px;
+}
+.weekly-forecast-date,
+.weekly-forecast-icons,
+.weekly-forecast-temperature {
+  text-align: center;
+  font-size: 15px;
+}
+
+.weekly-forecast-date,
+.weekly-forecast-temperature-min {
+  color: rgba(0, 0, 0, 0.287);
+}

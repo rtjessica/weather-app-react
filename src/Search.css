@@ -38,7 +38,7 @@ p .small-text {
 }
 
 canvas {
-  height: 49px;
+  height: 60px;
 }
 
 .search:hover {
@@ -58,8 +58,9 @@ canvas {
 }
 .current-city {
   font-size: 35px;
+  text-align: left;
   margin: 0;
-  padding: 0;
+  padding-left: 30;
   padding-top: 30px;
 }
 
@@ -103,30 +104,9 @@ canvas {
   text-decoration: underline;
 }
 
-.weekly {
-  padding-top: 10px;
-}
-.weekly-forecast-date,
-.weekly-forecast-icons,
-.weekly-forecast-temperature {
-  text-align: center;
-  font-size: 15px;
-}
-
 .link-git {
   display: block;
   margin: 0 auto;
   padding: 0px 150px 0px 150px;
   max-width: 900px;
-}
-
-.weekly-forecast-icons {
-  width: 50px;
-  display: block;
-  margin: 0 auto;
-}
-
-.weekly-forecast-date,
-.weekly-forecast-temperature-min {
-  color: rgba(0, 0, 0, 0.287);
 }

@@ -12,20 +12,23 @@ export default function Search() {
   function handleResponse(response) {
     setLoaded(true);
     setWeather({
-      temperature: Math.round(response.data.main.temp),
-      humidity: response.data.main.humidity,
+      coordinates: response.data.coordinates,
+      temperature: Math.round(response.data.temperature.current),
+      humidity: response.data.temperature.humidity,
       wind: response.data.wind.speed,
-      description: response.data.weather[0].description,
-      date: new Date(response.data.dt * 1000),
-      icon: response.data.weather[0].icon,
+      description: response.data.condition.description,
+      date: new Date(response.data.time * 1000),
+      icon: response.data.condition.icon_url,
+      iconDescription: response.data.condition.icon,
+      city: response.data.city,
     });
   }
 
   function handleSubmit(event) {
     event.preventDefault();
-    let apiKey = "6e6ec494746b5229a9f2d526478c924c";
+    let apiKey = "tfcd3e25d2be9a7a29a436do2b30aed0";
     let units = "metric";
-    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=${units}`;
+    let url = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=${units}`;
     axios.get(url).then(handleResponse);
 
     return city;
@@ -53,7 +56,7 @@ export default function Search() {
       <div>
         {form}
         <WeatherData data={weather} />
-        <WeatherForecast data={weather} />
+        <WeatherForecast coordinates={weather.coordinates} />
       </div>
     );
   } else {
